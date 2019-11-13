@@ -1,5 +1,10 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
+export const USER_SIGNING = 'USER_SIGNING';
+export const USER_SIGNING_SUCCESS = 'USER_SIGNING_SUCCESS';
+export const USER_SIGNING_FAILURE = 'USER_SIGNING_FAILURE';
+
+
 
 export const START_FETCHING = 'START_FETCHING';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
@@ -14,7 +19,6 @@ export const fetchFriends = () => dispatch => {
     .catch(err => dispatch( { type: FETCH_FAILURE, payload: err.response } ) )
 
 }  
-
 
 export const POSTING_DATA = 'POSTING_DATA';
 export const POSTING_DATA_SUCCESS = 'POSTING_DATA_SUCCESS';
@@ -37,7 +41,7 @@ export const deleteFriend = friendId => dispatch => {
     dispatch({ type: DELETING_DATA })
 
     axiosWithAuth()
-    .delete(`/friends${friendId}`)
+    .delete(`/friends/${friendId}`)
     .then( response => dispatch( { type: DELETING_DATA_SUCCESS, payload: response.data } ))
     .catch( err => dispatch( { type: DELETING_DATA_FAILURE, payload: err.response } ))
 }

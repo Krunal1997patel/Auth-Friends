@@ -45,7 +45,7 @@ const reducer = (state = initialState , action) => {
             return{ ...state, isgetting: true }
 
         case DELETING_DATA_SUCCESS:
-            return { ...state, smurfs: action.payload, isgetting: false }
+            return { ...state, friend: action.payload, isgetting: false }
 
         case DELETING_DATA_FAILURE:
             return { ...state, error: action.payload, isgetting: false }
