@@ -16,7 +16,8 @@ import {
 const initialState  = {
     friend: [],
     isgetting: false,
-    error: ''
+    error: '',
+    signIn: false
 }
 
 const reducer = (state = initialState , action) => {

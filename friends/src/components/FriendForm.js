@@ -16,7 +16,6 @@ const FriendForm = props => {
     }
 
     const handleSubmit = e => {
-        e.preventDefault()
         props.postFriend(friendData)
         setFriendData({
             name: '',
@@ -57,7 +56,7 @@ const FriendForm = props => {
                     name='age'
                 />
                 <br/>
-                <button type='submit' >New Friend</button>
+                <button className='add' type='submit' >New Friend</button>
             </form>
         </div>
     )

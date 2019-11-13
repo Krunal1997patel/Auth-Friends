@@ -1,5 +1,7 @@
 import React,{useState} from 'react';
-import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { connect } from 'react-redux'
+import { signIn } from '../action'
+import { withRouter } from "react-router-dom";
 
 const SignUp = props => {
 
@@ -10,19 +12,11 @@ const SignUp = props => {
     })
 
     const handleChange = e => {
-        // console.log([e.target.name], [e.target.value])
         setInfo({...info, [e.target.name]: e.target.value})
     }
 
     const handleSubmit = e =>{
-        e.preventDefault()
-        axiosWithAuth()
-        .post('/login', info)
-        .then(res => {
-            localStorage.setItem('token', res.data.payload);
-            props.history.push('/friendList')
-        })
-        .catch(err => console.log(err.response))
+        props.signIn(info)
        setInfo({username: '', password: ''})
     }
 
@@ -49,7 +43,7 @@ const SignUp = props => {
                     name='password'
                 />
                 <br/>
-                <button type='submit'>Submit</button>
+                <button className='add' type='submit'>Submit</button>
             </form>
 
         </div>
@@ -57,4 +51,4 @@ const SignUp = props => {
 }
 
 
-export default SignUp
+export default connect(null, { signIn })(SignUp)

@@ -17,10 +17,12 @@ const FriendList = props => {
     return(
         <div>
            <h2>Total Friend: {props.friend.length}</h2>
-           {props.error && <p>{props.error}</p>}
-           {props.friend.map(fri => (
-               <Friend key={fri.id} friend={fri} />
-           ))}
+           <div  className='card-list'>
+            {props.error && <p>{props.error}</p>}
+            {props.friend.map(fri => (
+                <Friend key={fri.id} friend={fri} />
+            ))}
+           </div>
         </div>
     )
 }

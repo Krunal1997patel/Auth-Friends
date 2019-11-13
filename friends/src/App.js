@@ -12,9 +12,9 @@ function App() {
       <div className="App">
 
         <nav>
-          <NavLink to='/login'>SignUp</NavLink>
-          <NavLink to='/friendList'>Friends</NavLink>
-          <NavLink to='/addFriend'>Add Friends</NavLink>
+          <NavLink  className='Link' to='/login'>SignUp</NavLink>
+          <NavLink  className='Link' to='/friendList'>Friends</NavLink>
+          <NavLink  className='Link' to='/addFriend'>Add Friends</NavLink>
         </nav>
 
         <Route exate path='/login' component={SignUp} />

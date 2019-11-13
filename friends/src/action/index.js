@@ -1,8 +1,22 @@
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
+import { createBrowserHistory } from "history";
+
 export const USER_SIGNING = 'USER_SIGNING';
 export const USER_SIGNING_SUCCESS = 'USER_SIGNING_SUCCESS';
 export const USER_SIGNING_FAILURE = 'USER_SIGNING_FAILURE';
+
+export const history = createBrowserHistory();
+
+export const signIn = signInData => dispatch => {
+    dispatch({ type: USER_SIGNING })
+
+    axiosWithAuth()
+    .post('/login', signInData)
+    .then(res => dispatch( { type: USER_SIGNING_SUCCESS, payload: res.data.payload }, localStorage.setItem('token', res.data.payload) ) )
+    .then( history.push('/friendList'))
+    .catch(err => dispatch( { type: USER_SIGNING_FAILURE, payload: err.response } ))
+}
 
 
 
@@ -30,6 +44,7 @@ export const postFriend = friendData => dispatch => {
     axiosWithAuth()
     .post('/friends', friendData)
     .then( response => dispatch( { type: POSTING_DATA_SUCCESS, payload: response.data } ))
+    .then( history.push('/friendList'))
     .catch( err => dispatch( { type: POSTING_DATA_FAILURE, payload: err.response } ))
 }
 

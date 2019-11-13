@@ -6,11 +6,11 @@ const Friend = props => {
 
 
     return(
-        <div>
+        <div className='card'>
             <h2>{props.friend.name}</h2>
-            <h3>Email: {props.friend.email}</h3>
+            <h3>{props.friend.email}</h3>
             <h3>Age: {props.friend.age}</h3>
-            <button onClick={() => props.deleteFriend(props.friend.id)} >Bye Bye</button>
+            <button className='delete' onClick={() => props.deleteFriend(props.friend.id)} >Bye Bye</button>
         </div>
     )
 }
