@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
 import { connect } from 'react-redux'
 import { signIn } from '../action'
-import { withRouter } from "react-router-dom";
 
 const SignUp = props => {
 

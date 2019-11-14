@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import PrivateRoute from './components/PrivateRoute';
 import FriendList from './components/FriendList';
 import FriendForm from './components/FriendForm';
+import Nav from './components/Nav'
 import SignUp from './components/SignUp';
 import './App.css';
 
@@ -11,13 +12,9 @@ function App() {
     <Router>
       <div className="App">
 
-        <nav>
-          <NavLink  className='Link' to='/login'>SignUp</NavLink>
-          <NavLink  className='Link' to='/friendList'>Friends</NavLink>
-          <NavLink  className='Link' to='/addFriend'>Add Friends</NavLink>
-        </nav>
+        <Nav/>
 
-        <Route exate path='/login' component={SignUp} />
+        <Route exact path='/' component={SignUp} />
         <PrivateRoute path='/friendList' component={FriendList}/>
         <PrivateRoute path='/addFriend' component={FriendForm} />
       </div>
