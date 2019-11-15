@@ -1,0 +1,44 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: #1f1f1f;
+  color: white;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.Link{
+  color: white;
+  margin: 3%;
+  font-size: 1.7rem;
+}
+
+.card-list{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card{
+  border: oldlace 1px solid;
+  margin: 25px;
+  padding: 20px 40px;
+  border-top-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
+
+.delete{
+  border: crimson 1px solid;
+  background-color: crimson;
+  color: white;
+  padding: 10px;
+}
+
+.add{
+  border: lawngreen 1px solid;
+  background-color: lawngreen;
+  color: black;
+  padding: 10px;
+}
